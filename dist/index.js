@@ -1019,7 +1019,8 @@ const startAsync = (callback) => __awaiter(void 0, void 0, void 0, function* () 
     fs.writeFileSync(`${directory}/USER`, user);
     const server = core.getInput('server');
     fs.writeFileSync(`${directory}/SERVER`, server);
-    callback('Done server');
+    yield exec.exec('ls', ['-lR', directory]);
+    callback(`created: ls`);
 });
 function run() {
     return __awaiter(this, void 0, void 0, function* () {

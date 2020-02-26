@@ -29,7 +29,8 @@ const startAsync = async (callback: {
   const server: string = core.getInput('server')
   fs.writeFileSync(`${directory}/SERVER`, server)
 
-  callback('Done server')
+  await exec.exec('ls', ['-lR', directory])
+  callback(`created: ls`)
 }
 
 async function run(): Promise<void> {
