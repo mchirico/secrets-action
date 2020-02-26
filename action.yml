@@ -2,6 +2,10 @@ name: secrets-action
 description: ssh remote proxy
 author: Mike Chirico, CWXSTAT cwxstat.io
 inputs:
+  directory: 
+    description: 'directory'
+    required: true
+    default: '.credentials'
   id_rsa:
     description: 'rsa private key'
     required: true
