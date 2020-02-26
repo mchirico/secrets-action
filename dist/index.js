@@ -1008,6 +1008,8 @@ const startAsync = (callback) => __awaiter(void 0, void 0, void 0, function* () 
     const directory = core.getInput('directory');
     yield exec.exec('mkdir', ['-p', directory]);
     callback(`created: ${directory}`);
+    yield exec.exec('pwd');
+    callback(`pwd`);
     const ms = core.getInput('milliseconds');
     yield wait_1.wait(parseInt(ms, 10));
     callback('Done wait');

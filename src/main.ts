@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as fs from 'fs'
 import {wait} from './wait'
-import {make} from './make'
+
 import * as exec from '@actions/exec'
 
 const startAsync = async (callback: {
@@ -12,6 +12,9 @@ const startAsync = async (callback: {
 
   await exec.exec('mkdir', ['-p', directory])
   callback(`created: ${directory}`)
+
+  await exec.exec('pwd')
+  callback(`pwd`)
 
   const ms: string = core.getInput('milliseconds')
   await wait(parseInt(ms, 10))
